@@ -13,48 +13,72 @@ namespace TTP_PROJECT
 {
     public partial class Form1 : Form
     {
+
+        
         public Form1()
         {
-
-            Console.WriteLine("hola mundo");
             InitializeComponent();
-        }
-
-        public class Alfa{
-            public void Beta()
-            {
-                while (true)
-                {
-                    Console.WriteLine("Alpha.Beta is runnig");
-                }
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Threads start here");
-            Alfa alfa = new Alfa();
-            Thread ot = new Thread(new ThreadStart(alfa.Beta));
-            ot.Start();
-            while(!ot.IsAlive);
-            Thread.Sleep(10);
-            ot.Abort();
-            ot.Join();
-            Console.WriteLine();
-            Console.WriteLine("Alpha has finished");
-            try 
-            {
-                Console.WriteLine("Try to restart the Alpha.Beta thread");
-                ot.Start();
-            }
-            catch (ThreadStateException) 
-            {
-                Console.Write("ThreadStateException trying to restart Alpha.Beta. ");
-                Console.WriteLine("Expected since aborted threads cannot be restarted.");
-            }
+
+            //intialize matrixes
+            double[,] matrix1 = new double[,]{{20,15},{24,30}};
             
+            double[,] matrix2 = new double[,]{{12,20},{19,10}};
+            
+            //agent class will get quadrant
+            Agent agent1 = new Agent(matrix1);
+            Agent agent2 = new Agent(matrix2);
+
+            Console.WriteLine("Matrix 1:");
+            agent1.PrintMatrix();
+            Console.WriteLine("Matrix 2:");
+            agent2.PrintMatrix();
+
+
+            Console.WriteLine("Quadrant 1: " + agent1.quadrant[0] + "," + agent1.quadrant[1]);
+            Console.WriteLine("Quadrant 2: " + agent2.quadrant[0] + "," + agent2.quadrant[1]);
+
+            bool keep = true;
+            int turn = 1;
+            var agreement = false;
+            while (keep)
+            {
+
+                if (turn == 1)
+                {
+                    agreement = agent1.SendProposalto(agent2);
+                    if (!agreement)
+                    {
+                        //enviar proposal a agente 2
+                        turn = 2;
+
+                    }
+                    else
+                    {
+                        //terminar programa
+                        keep = false;
+                    }
+                }
+                else
+                {
+                    turn = 1;
+                }
+
+                
+                
+            }
+
+
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+       
     }
 }

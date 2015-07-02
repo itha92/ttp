@@ -7,3 +7,4 @@ c:\users\wilfredoithamar\documents\visual studio 2013\Projects\TTP_PROJECT\TTP_P
 c:\users\wilfredoithamar\documents\visual studio 2013\Projects\TTP_PROJECT\TTP_PROJECT\obj\Debug\TTP_PROJECT.exe
 c:\users\wilfredoithamar\documents\visual studio 2013\Projects\TTP_PROJECT\TTP_PROJECT\obj\Debug\TTP_PROJECT.pdb
 c:\users\wilfredoithamar\documents\visual studio 2013\Projects\TTP_PROJECT\TTP_PROJECT\obj\Debug\TTP_PROJECT.Form1.resources
+C:\Users\WilfredoIthamar\documents\visual studio 2013\Projects\TTP_PROJECT\TTP_PROJECT\obj\Debug\TTP_PROJECT.Input.resources
